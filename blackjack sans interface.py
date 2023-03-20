@@ -2,7 +2,6 @@ import random
 import tkinter as tk
 nombre_joueur = 1
 carte_tirée = []
-liste_carte=[]
 nombre_tiré =[]
 croupier = 0
 joueur_1 = 0
