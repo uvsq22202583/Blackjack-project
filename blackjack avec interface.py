@@ -18,7 +18,6 @@ def fonction_nom() :
     global nomString
     nomString = nomString.get()
     nomString = str(nomString)
-    print(nomString, type(nomString))
     return nomString
 
 racine_nom = tk.Tk()                                                                                        #Création de la fenêtre racine
@@ -45,7 +44,6 @@ def fonction_mise() :
     global miseString
     miseString = miseString.get()
     miseString = int(miseString)
-    miseString = miseString*2
     return miseString
 
 
@@ -53,23 +51,21 @@ def fonction_mise() :
 racine_mise = tk.Tk()                                                                                        #Création de la fenêtre racine
 racine_mise.title("Blackjack")                                                                               #ajoute un titre
 racine_mise.attributes("-fullscreen", True)                                                                  #dimension de la fenetre
-img = tk.PhotoImage(file = "projets\photo du tapis de blackjack.png")                                       #définition de l'image de fond
-img = img.zoom(3,3)                                                                                         #redimension de l'image de fond
+img = tk.PhotoImage(file = "projets\photo du tapis de blackjack.png")                                        #définition de l'image de fond
+img = img.zoom(3,3)                                                                                          #redimension de l'image de fond
 labelimage = tk.Label(racine_mise, image = img)                                                              #création du label image
-labelimage.place(x=-200,y=-3)                                                                               #placement de l'image
-labelmise = tk.Label(racine_mise, fg="red", text = "Quel est votre mise ",font=("roadstore","20"))            #création du label pour demander le nom
+labelimage.place(x=-200,y=-3)                                                                                #placement de l'image
+labelmise = tk.Label(racine_mise, fg="red", text = "Quel est votre mise ",font=("roadstore","20"))           #création du label pour demander le nom
 labelmise.grid(column=0, row=3, padx= 250, pady=200)
 miseString = tk.StringVar()  
-entrynom = tk.Entry(racine_mise, textvariable=miseString, fg="red", font=("georgia","20"))                  #création de la cellule d'écriture
+entrynom = tk.Entry(racine_mise, textvariable=miseString, fg="red", font=("georgia","20"))                   #création de la cellule d'écriture
 entrynom.grid(column=1, row=3, padx=0, pady=200)     
-ok_mise = tk.Button(racine_mise, fg = "red", text="ok",font=("roadstore","20"), command = fonction_mise)   #création du bouton valider
+ok_mise = tk.Button(racine_mise, fg = "red", text="ok",font=("roadstore","20"), command = fonction_mise)     #création du bouton valider
 ok_mise.grid(column = 2, row = 3, padx=50, pady=200)                                                                                                                                    
 valider_mise = tk.Button(racine_mise, fg = "red", text="valider",font=("roadstore","20"), command = racine_mise.destroy)   #création du bouton valider
 valider_mise.grid(column = 3, row = 3, padx=50, pady=200)                                                    #placement du label pour demender le nom #placement de la cellule d'ecrit
 racine_mise.mainloop()                                                                          #lancement de la boucle racine
 
-
-print("le nom du joueur est", nomString)
 
 
 
@@ -264,6 +260,8 @@ while joueur_1 < 21:                                                            
         non_nvl_carte.pack()                                                                                                             #placement du bouton non
         valider_nvl_carte = tk.Button(racine, fg = "red", text="valider",font=("roadstore","20"), command = racine.destroy)              #création du bouton valider
         valider_nvl_carte.pack()                                                                                                         #placement du bouton valider
+        abandonner = tk.Button(racine, fg = "red", text="abandonner",font=("roadstore","20"), command = quit)                            #création du bouton abandonner
+        abandonner.pack()                                                                                                                #placement du bouton abandonner
         oui_nvl_carte_2 = tk.Button(racine, fg = "red", text="oui",font=("roadstore","20"), command= afficher_nouveau_score(joueur_1))   #création du bouton oui
         oui_nvl_carte_2.pack()                                                                                                           #placement du bouton oui
         joueur_1 = joueur_1 + nombre_tiré[-1]                                                                                            #ajouter le nombre tiré au score du joueur
